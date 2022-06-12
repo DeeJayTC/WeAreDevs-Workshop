@@ -19,7 +19,7 @@
 
 <script>
 import companyCard from '@/assets/cards/companyCard.json'
-import addcontact from '@/components/addContactDialog.vue'
+import addcontact from '@/components/addCompanyDialog.vue'
 import { mapState } from 'vuex'
 export default {
   components: {

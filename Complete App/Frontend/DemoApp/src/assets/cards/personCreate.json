@@ -68,9 +68,9 @@
             "placeholder": "Company",
             "label": "Company",
             "id": "company",
-            "$data": "${$root.Companies}",
             "choices": [
                 {
+                    "$data": "${$root.Companies}",
                     "title": "${Name}",
                     "value": "${Id}"
                 }
@@ -80,7 +80,8 @@
             "label": "Profile Image",
             "placeholder": "Placeholder text",
             "type": "Input.Text",
-            "id": "image"
+            "id": "image",
+            "value": "${$root.Image}"
         },
         {
             "type": "ActionSet",
