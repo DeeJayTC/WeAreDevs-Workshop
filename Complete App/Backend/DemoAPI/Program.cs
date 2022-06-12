@@ -2,42 +2,45 @@ using System.Reflection;
 using TCDev.APIGenerator;
 using TCDev.APIGenerator.Extension;
 using TCDev.APIGenerator.Identity;
+using TCDev.APIGenerator.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApiGeneratorIdentity(builder.Configuration);
-
 builder.Services.AddApiGeneratorServices()
-        .AddConfig(new ApiGeneratorConfig()
-        {
-            ApiOptions = new ApiOptions()
-            {
-                UseHealthCheck = true
-            },
-            DatabaseOptions = new DatabaseOptions()
-            {
-                Connection = "Server=localhost;database=wdcc_nuget;user=sa;password=Password!23;",
-                DatabaseType = DbType.Sql,
-                EnableAutomaticMigration = true
-            }
-        })
-        .AddAssembly(Assembly.GetExecutingAssembly())
-        .AddDataContextSQL()
-        .AddOData()
-        .AddSwagger();
+                .AddConfig(new ApiGeneratorConfig()
+                {
+                    DatabaseOptions = new DatabaseOptions()
+                    {
+                        Connection = "Server=localhost;database=123123123;user=sa;password=Password!23;",
+                        DatabaseType = DbType.Sql,
+                        EnableAutomaticMigration = true
+                    }
+                })
+                .AddAssemblyWithOdata(Assembly.GetExecutingAssembly())
+                .AddDataContextSQL()
+                .AddOData()
+                .AddSwagger();
+
+builder.Services.AddCors(o =>
+    o.AddPolicy("defaultPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithExposedHeaders("x-items", "x-items-total", "x-cache");
+    })
+);
 
 
 var app = builder.Build();
 
+app.UseCors("defaultPolicy");
 app.UseApiGenerator();
 app.UseAutomaticApiMigrations(true);
 
-// Configure the HTTP request pipeline.
+app.UseApiGeneratorAuthentication();
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-//app.UseApiGenerator();
 app.MapControllers();
 
 app.Run();

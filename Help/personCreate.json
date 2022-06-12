@@ -1,0 +1,97 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "width": "stretch",
+                    "type": "Column",
+                    "items": [
+                        {
+                            "text": "Basic Data",
+                            "type": "TextBlock",
+                            "size": "Medium",
+                            "weight": "Bolder"
+                        },
+                        {
+                            "label": "Name",
+                            "type": "Input.Text",
+                            "placeholder": "Person full name",
+                            "value": "${$root.displayName}",
+                            "id": "name"
+                        },
+                        {
+                            "label": "Job Title",
+                            "type": "Input.Text",
+                            "placeholder": "Persons's Job Title",
+                            "value": "${$root.jobTitle}",
+                            "id": "job"
+                        }
+                    ]
+                },
+                {
+                    "width": "stretch",
+                    "type": "Column",
+                    "items": [
+                        {
+                            "text": "Contact Details",
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "size": "Medium"
+                        },
+                        {
+                            "label": "Email",
+                            "placeholder": "*@*.com",
+                            "type": "Input.Text",
+                            "value": "${$root.mail}",
+                            "id": "email"
+                        },
+                        {
+                            "label": "Business Phone",
+                            "placeholder": "+1 223 546",
+                            "value": "${$root.businessPhones[0]}",
+                            "type": "Input.Text",
+                            "id": "phone"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Office",
+            "placeholder": "Building Number",
+            "type": "Input.Text",
+            "value": "${$root.officeLocation}",
+            "id": "office"
+        },
+        {
+            "label": "Profile Image",
+            "placeholder": "Placeholder text",
+            "type": "Input.Text",
+            "id": "image"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "title": "Save",
+                    "type": "Action.Submit",
+                    "id": "submit",
+                    "style": "positive",
+                    "data": {
+                        "personId": "${$root.id}"
+                    }
+                },
+                {
+                    "title": "Cancel",
+                    "type": "Action.Submit",
+                    "id": "cancel",
+                    "style": "negative"
+                }
+            ]
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}

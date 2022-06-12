@@ -1,0 +1,101 @@
+{
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "width": "stretch",
+                    "type": "Column",
+                    "items": [
+                        {
+                            "text": "Basic Data",
+                            "type": "TextBlock",
+                            "size": "Medium",
+                            "weight": "Bolder"
+                        },
+                        {
+                            "label": "Name",
+                            "type": "Input.Text",
+                            "placeholder": "Person full name",
+                            "value": "${$root.Name}",
+                            "id": "name",
+                            "isRequired": true,
+                            "errorMessage": "Name is required"
+                        },
+                        {
+                            "label": "Job Title",
+                            "type": "Input.Text",
+                            "placeholder": "Persons's Job Title",
+                            "value": "${$root.Job}",
+                            "id": "job"
+                        }
+                    ]
+                },
+                {
+                    "width": "stretch",
+                    "type": "Column",
+                    "items": [
+                        {
+                            "text": "Contact Details",
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "size": "Medium"
+                        },
+                        {
+                            "label": "Email",
+                            "placeholder": "*@*.com",
+                            "type": "Input.Text",
+                            "value": "${$root.Email}",
+                            "id": "email",
+                            "isRequired": true,
+                            "errorMessage": "Email is required"
+                        },
+                        {
+                            "label": "Business Phone",
+                            "placeholder": "+1 223 546",
+                            "value": "${$root.Phone}",
+                            "type": "Input.Text",
+                            "id": "phone"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "placeholder": "Company",
+            "label": "Company",
+            "id": "company",
+            "$data": "${$root.Companies}",
+            "choices": [
+                {
+                    "title": "${Name}",
+                    "value": "${Id}"
+                }
+            ]
+        },
+        {
+            "label": "Profile Image",
+            "placeholder": "Placeholder text",
+            "type": "Input.Text",
+            "id": "image"
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "title": "Save",
+                    "type": "Action.Submit",
+                    "id": "submit",
+                    "style": "positive",
+                    "data": {
+                        "contactId": "${$root.Id}"
+                    }
+                }
+            ]
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}

@@ -7,13 +7,57 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EFCore.AutomaticMigrations" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="TCDev.APIGenerator.Data.SQL" Version="0.5.0-WDWC-DEMO" />
-    <PackageReference Include="TCDev.APIGenerator.OData" Version="0.5.0-WDWC-DEMO" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.19.0" />
+    <PackageReference Include="TCDev.APIGenerator" Version="0.5.0-WDWC-DEMO-ODATA" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TCDev.APIGenerator.Data.SQL">
+      <HintPath>Lib\TCDev.APIGenerator.Data.SQL.dll</HintPath>
+    </Reference>
+    <Reference Include="TCDev.APIGenerator.OData">
+      <HintPath>Lib\TCDev.APIGenerator.OData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Lib\TCDev.APIGenerator.Data.SQL.deps.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Lib\TCDev.APIGenerator.Data.SQL.runtimeconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Lib\TCDev.APIGenerator.OData.deps.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Lib\TCDev.APIGenerator.Data.SQL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Lib\TCDev.APIGenerator.Data.SQL.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Lib\TCDev.APIGenerator.OData.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Lib\TCDev.APIGenerator.OData.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

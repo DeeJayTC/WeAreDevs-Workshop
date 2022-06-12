@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Work\\WeAreDevs\\DemoAPI\\DemoAPI\\DemoAPI.csproj": {}
+    "E:\\Work\\Github\\DeeJayTC\\WeAreDevs-Workshop\\Complete App\\Backend\\DemoAPI\\DemoAPI.csproj": {}
   },
   "projects": {
-    "E:\\Work\\WeAreDevs\\DemoAPI\\DemoAPI\\DemoAPI.csproj": {
+    "E:\\Work\\Github\\DeeJayTC\\WeAreDevs-Workshop\\Complete App\\Backend\\DemoAPI\\DemoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Work\\WeAreDevs\\DemoAPI\\DemoAPI\\DemoAPI.csproj",
+        "projectUniqueName": "E:\\Work\\Github\\DeeJayTC\\WeAreDevs-Workshop\\Complete App\\Backend\\DemoAPI\\DemoAPI.csproj",
         "projectName": "DemoAPI",
-        "projectPath": "E:\\Work\\WeAreDevs\\DemoAPI\\DemoAPI\\DemoAPI.csproj",
+        "projectPath": "E:\\Work\\Github\\DeeJayTC\\WeAreDevs-Workshop\\Complete App\\Backend\\DemoAPI\\DemoAPI.csproj",
         "packagesPath": "C:\\Users\\Tim Cadenbach\\.nuget\\packages\\",
-        "outputPath": "E:\\Work\\WeAreDevs\\DemoAPI\\DemoAPI\\obj\\",
+        "outputPath": "E:\\Work\\Github\\DeeJayTC\\WeAreDevs-Workshop\\Complete App\\Backend\\DemoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "e:\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -46,23 +46,45 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EFCore.AutomaticMigrations": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.4, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
             },
-            "TCDev.APIGenerator.Data.SQL": {
+            "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[0.5.0-WDWC-DEMO, )"
+              "version": "[6.19.0, )"
             },
-            "TCDev.APIGenerator.OData": {
+            "TCDev.APIGenerator": {
               "target": "Package",
-              "version": "[0.5.0-WDWC-DEMO, )"
+              "version": "[0.5.0-WDWC-DEMO-ODATA, )"
             }
           },
           "imports": [
@@ -83,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22154.4\\RuntimeIdentifierGraph.json"
         }
       }
     }
