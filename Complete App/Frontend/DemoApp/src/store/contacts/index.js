@@ -14,8 +14,18 @@ const mutations = {
   addContact(state, contact) {
     state.contacts.push(contact)
   },
-  updatePerson(state, person) {
-    const existingPerson = state.people.find((p) => p.id === person.id)
+  deleteContact(state,contactId) {
+    const contact = state.contacts.find((p) =>  p.Id === contactId  )
+    const index = state.contacts.indexOf(contact)
+
+    console.log(index)
+
+    if (index > -1) {
+      state.contacts.splice(index, 1)
+    }
+  },
+  updateContact(state, contact) {
+    const existingPerson = state.contacts.find((p) => p.id === person.id)
 
     if (existingPerson) {
       existingPerson.displayName = person.displayName
@@ -55,7 +65,15 @@ const actions = {
       'Image': contact.data.image,
       'Job': contact.data.job
     }).then((result) => {
-      commit('addContact', contact)
+      commit('updateContact', contact)
+
+      return result.data
+    }
+    ).catch((error) => {  console.log(error) })  
+  },
+  deleteContact({ commit }, contactId) {
+    axios.delete('https://localhost:7165/people/' + contactId).then((result) => {
+      commit('deleteContact', contactId)
 
       return result.data
     }

@@ -9,7 +9,7 @@
                     "items": [
                         {
                             "type": "Image",
-                            "url": "${$root.image}",
+                            "url": "${$root.Image}",
                             "size": "Medium",
                             "width": "85px",
                             "height": "85px"
@@ -24,14 +24,14 @@
                         {
                             "type": "TextBlock",
                             "weight": "Bolder",
-                            "text": "${$root.displayName}",
+                            "text": "${$root.Name}",
                             "wrap": true,
                             "size": "Large"
                         },
                         {
                             "type": "TextBlock",
                             "spacing": "None",
-                            "text": "${$root.jobTitle}",
+                            "text": "${$root.Job}",
                             "isSubtle": true,
                             "wrap": true
                         }
@@ -44,19 +44,19 @@
         },
         {
             "type": "TextBlock",
-            "text": "${$root.mail}",
+            "text": "${$root.Email}",
             "wrap": true
         },
         {
             "type": "FactSet",
             "facts": [
                 {
-                    "title": "Office Location",
-                    "value": "${$root.officeLocation}"
+                    "title": "Company",
+                    "value": "${$root.company.Name}"
                 },
                 {
                     "title": "BusinessPhone",
-                    "value": "${$root.businessPhones[0]}"
+                    "value": "${$root.Phone}"
                 }
             ]
         }

@@ -19,14 +19,13 @@ const mutations = {
 const actions = {
   addCompany({ commit }, contact) {
 
-    console.log(contact.data)
-    axios.post('https://localhost:7165/companies', {
+    axios.post(`${process.env.VUE_APP_API_URI}/companies`, {
       'Name': contact.data.name,
       'Email': contact.data.email,
       'Description' : '.',
       'Address' : 'home',
       'Country' : 'haha',
-      'image' : 'haha',
+      'Image' : contact.data.image,
       'Id': contact.data.id
     }).then((result) => {
       commit('addCompany', contact)
@@ -36,7 +35,7 @@ const actions = {
     ).catch((error) => {  console.log(error) })  
   },
   updateCompany({ commit }, contact) {
-    axios.put('https://localhost:7165/companies/' + contact.data.contactId, {
+    axios.put(`${process.env.VUE_APP_API_URI}/companies/` + contact.data.contactId, {
       'Name': contact.data.name,
       'Email': contact.data.email,
       'Description' : '.',
@@ -52,7 +51,7 @@ const actions = {
     ).catch((error) => {  console.log(error) })  
   },
   loadCompanies({ commit }) {
-    axios.get('https://localhost:7165/companies').then((result) => {
+    axios.get(`${process.env.VUE_APP_API_URI}/companies`).then((result) => {
       commit('loadCompanies', result.data)
 
       return result.data

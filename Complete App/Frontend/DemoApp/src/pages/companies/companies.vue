@@ -7,9 +7,6 @@
     <v-row class="flex-grow-0" dense>
       <v-col v-for="company in companies" :key="company.id" cols="3">
         <v-card flat>
-          <v-card-actions>
-            <v-btn color="primary" icon @click="editContact(contact)"><v-icon>mdi mdi-pencil</v-icon></v-btn>
-          </v-card-actions>
           <adaptive-cards :card="card" :data="company" :use-templating="true" />
         </v-card>
       </v-col>

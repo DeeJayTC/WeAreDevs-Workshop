@@ -9,7 +9,7 @@
                   "items": [
                       {
                           "type": "Image",
-                          "url": "${$root.image}",
+                          "url": "${$root.Image}",
                           "size": "Medium",
                           "width": "85px",
                           "height": "85px"
@@ -27,7 +27,13 @@
                           "text": "${$root.Name}",
                           "wrap": true,
                           "size": "Large"
-                      }
+                      },
+                      {
+                        "type": "TextBlock",
+                        "text": "${$root.Email}",
+                        "wrap": true,
+                        "size": "Large"
+                    }
                   ],
                   "width": "stretch",
                   "minHeight": "85px",

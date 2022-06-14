@@ -8,7 +8,9 @@
       <v-col v-for="contact in contacts" :key="contact.id" cols="3">
         <v-card flat>
           <v-card-actions>
+            <v-spacer></v-spacer>
             <addcontact :mode="'update'" :person="contact"></addcontact> 
+            <v-btn icon @click="deleteContact(contact.Id)"><v-icon>mdi mdi-delete</v-icon></v-btn>
           </v-card-actions>
           <adaptive-cards :card="card" :data="contact" :use-templating="true" />
         </v-card>
@@ -48,8 +50,8 @@ export default {
     addContact() {
 
     },
-    editContact() {
-
+    deleteContact(contactId) {
+      this.$store.dispatch('contacts/deleteContact',contactId)
     },
     clear() {
       clearInterval(this.loadingInterval)
